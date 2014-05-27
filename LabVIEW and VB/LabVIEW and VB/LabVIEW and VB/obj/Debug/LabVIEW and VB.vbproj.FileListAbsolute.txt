@@ -1,0 +1,8 @@
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\bin\Debug\LabVIEW and VB.dll
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\bin\Debug\LabVIEW and VB.pdb
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\bin\Debug\LabVIEW and VB.xml
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\obj\Debug\ClassLibrary1.Resources.resources
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\obj\Debug\LabVIEW and VB.vbproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\obj\Debug\LabVIEW and VB.dll
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\obj\Debug\LabVIEW and VB.xml
+C:\Users\Andrew\Documents\Apatite to Zircon Code\LabVIEW and VB\LabVIEW and VB\LabVIEW and VB\obj\Debug\LabVIEW and VB.pdb
