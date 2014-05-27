@@ -10,6 +10,7 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="Calculate Image Offset (Centroids).vi" Type="VI" URL="../Calculate Image Offset (Centroids).vi"/>
 		<Item Name="Extract Image Center.vi" Type="VI" URL="../Extract Image Center.vi"/>
 		<Item Name="Get Shift Values (Centroid).vi" Type="VI" URL="../Get Shift Values (Centroid).vi"/>
 		<Item Name="Get Shift Values (Pattern Match).vi" Type="VI" URL="../Get Shift Values (Pattern Match).vi"/>
