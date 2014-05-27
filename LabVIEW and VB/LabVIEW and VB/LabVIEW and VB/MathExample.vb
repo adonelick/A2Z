@@ -4,9 +4,10 @@
     Private _number1 As Integer
     Public _number2 As Double
 
-    Public Sub New()
-        ' This is the constructor. For this class, we don't
-        ' need to perform any kind of initialization.
+    Public Sub New(ByVal number1 As Integer, ByVal number2 As Double)
+        ' This is the constructor, where the class is initialized.
+        _number1 = number1
+        _number2 = number2
     End Sub
 
     ' This function takes in two doubles (number1 and number2)
@@ -20,9 +21,26 @@
     End Function
 
     ' You can also take in other data types from LabVIEW besides , such as strings.
-    ' This function returns the length of a given string.
-    Public Function stringLength(ByVal someText As String) As Integer
-        stringLength = someText.Length()
+    ' This function returns the length of a given string multiplied by
+    ' _number1 and _number2.
+    Public Function specialStringLength(ByVal someText As String) As Integer
+        specialStringLength = CInt(someText.Length() * _number1 * _number2)
+    End Function
+
+    ' You can also take in arrays...
+    Public Function addArrayElements(ByRef numbers As Integer()) As Integer
+
+        Dim result As Integer
+        For index = 0 To numbers.GetUpperBound(0) Step 1
+            result = result + numbers(index)
+        Next
+
+        addArrayElements = result
+    End Function
+
+    ' Or return arrays...
+    Public Function buildArray(ByVal number As Integer) As Integer()
+        buildArray = New Integer() {number}
     End Function
 
     ' If you want to return multiple numbers from the same function, you can.

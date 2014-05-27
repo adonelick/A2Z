@@ -9,7 +9,7 @@
     </SchemaVersion>
     <ProjectGuid>{D4765C90-3012-46C5-B7A2-11523D62EE1E}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>ClassLibrary1</RootNamespace>
+    <RootNamespace>Example</RootNamespace>
     <AssemblyName>LabVIEW and VB</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
