@@ -12,10 +12,18 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="TypeDefs" Type="Folder">
 			<Item Name="Command_Write_Read.ctl" Type="VI" URL="../TypeDefs/Command_Write_Read.ctl"/>
+			<Item Name="Stage_Commands.ctl" Type="VI" URL="../TypeDefs/Stage_Commands.ctl"/>
 			<Item Name="VISA_Connection.ctl" Type="VI" URL="../TypeDefs/VISA_Connection.ctl"/>
+			<Item Name="XYStage_Model.ctl" Type="VI" URL="../TypeDefs/XYStage_Model.ctl"/>
 		</Item>
-		<Item Name="XYStage_Communication.vi" Type="VI" URL="../XYStage_Communication.vi"/>
-		<Item Name="XYStage_Load_Command_Array.vi" Type="VI" URL="../XYStage_Load_Command_Array.vi"/>
+		<Item Name="XY Stage Communication" Type="Folder">
+			<Item Name="XYStage_Check_Status.vi" Type="VI" URL="../XYStage_Check_Status.vi"/>
+			<Item Name="XYStage_Communication.vi" Type="VI" URL="../XYStage_Communication.vi"/>
+			<Item Name="XYStage_Initialize_ASI_MS2000.vi" Type="VI" URL="../XYStage_Initialize_ASI_MS2000.vi"/>
+			<Item Name="XYStage_Initialize_Ludl_Kinetec.vi" Type="VI" URL="../XYStage_Initialize_Ludl_Kinetec.vi"/>
+			<Item Name="XYStage_Load_Command_Array.vi" Type="VI" URL="../XYStage_Load_Command_Array.vi"/>
+			<Item Name="XYStage_Write_General_Command.vi" Type="VI" URL="../XYStage_Write_General_Command.vi"/>
+		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
@@ -30,6 +38,7 @@
 				<Item Name="Error Code Database.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Code Database.vi"/>
 				<Item Name="ErrWarn.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/ErrWarn.ctl"/>
 				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
+				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="Find First Error.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find First Error.vi"/>
 				<Item Name="Find Tag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find Tag.vi"/>
 				<Item Name="Format Message String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Format Message String.vi"/>
@@ -52,10 +61,14 @@
 				<Item Name="Search and Replace Pattern.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Search and Replace Pattern.vi"/>
 				<Item Name="Set Bold Text.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set Bold Text.vi"/>
 				<Item Name="Set String Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set String Value.vi"/>
+				<Item Name="subDisplayMessage.vi" Type="VI" URL="/&lt;vilib&gt;/express/express output/DisplayMessageBlock.llb/subDisplayMessage.vi"/>
 				<Item Name="TagReturnType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/TagReturnType.ctl"/>
 				<Item Name="Three Button Dialog CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog CORE.vi"/>
 				<Item Name="Three Button Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog.vi"/>
 				<Item Name="Trim Whitespace.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace.vi"/>
+				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
+				<Item Name="VISA Configure Serial Port (Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Instr).vi"/>
+				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
 				<Item Name="VISA Flush IO Buffer Mask.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Flush IO Buffer Mask.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
