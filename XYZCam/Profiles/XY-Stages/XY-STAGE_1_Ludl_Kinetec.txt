@@ -1,0 +1,78 @@
+Command	Serial Command	Expected Reply	Axes	Syntax	Purpose	Comment
+XY-STAGE:ACCEL	ACCEL	null	XYZ	X X=time X?	changes/displays ramp time	units ms[50]_see INFO_must be greater than t_step
+XY-STAGE:AALIGN	AALIGN	:A	XYZ	X X=value X?	self-calibration of axis motor drive circuit	units unknown[85]
+XY-STAGE:AHOME	AHOME	null	XY	X=x0 Y=x0	"set coordinate location of first array position (1,1) "	units mm_with ARRAY
+XY-STAGE:AIJ	AIJ	null	XY	X=I Y=j	"move to array location (I,j) AHOME position is (1,1)"	units index_with ARRAY
+XY-STAGE:ARRAY	ARRAY	null	XY	X=nx Y=ny Z=dx F=dy	"grid of points traversed using TTL RBMODE AIJ size (nx,ny)"	units index units tenths mm(?)_with ARRAY for scanning
+XY-STAGE:AZERO	AZERO	null	XYZ	X	adjusts zero balance of motor drive card	unkown
+XY-STAGE:BACKLASH	BACKLASH	:A	XYZ	X=distance	common direction travel distance for backlash	units mm[0.05]
+XY-STAGE:BCUSTOM	BCUSTOM	null	-	not needed	not needed	not needed
+XY-STAGE:BENABLE	BENABLE	null	XYZ	X=toggle Z=enable_byte	enable disable button functions	see manual[X=0]_disables all buttons
+XY-STAGE:BUILD	BUILD	null	-	X	shows firmware build version	not needed
+XY-STAGE:CDATE	CDATE	null	-	blank	shows date and time of firmware compilation	not needed
+XY-STAGE:CNTS	CNTS	:A	XYZ	X=nx Y=ny Z=nz	encoder counts per mm	not needed
+XY-STAGE:CUSTOMA	CUSTOMA	null	XY Z(?)	Z=n	default 0=MOVE initiated 1 time_additional moves more stable landing	see manual[Y=0]
+XY-STAGE:CUSTOMB	CUSTOMB	null	-	-	-	not needed
+XY-STAGE:DACK	DACK	:A	XYZ	X=nx	not needed	not needed
+XY-STAGE:DUMP	DUMP	null	XY	X	diagnostics	not needed
+XY-STAGE:ENSYNC	ENSYNC	null	XY	X=x	trigger TTL across x boundary	not needed
+XY-STAGE:EPOLARITY	EPOLARITY	null	XYZ	X=value	not needed	not needed
+XY-STAGE:ERROR	ERROR	:A	XYZ	X=x	set Drift_Error setting	units mm[0.0004]_see INFO
+XY-STAGE:HALT	HALT	:A	XYZ	blank	stop all active motors	-
+XY-STAGE:HERE	HERE	:A	XYZ	X X=x	set axis position relative to origin	units mm_redefines origin
+XY-STAGE:HOME	HOME	:A	XYZ	X	move toward home position	units mm_see INFO_default position is 1000mm
+XY-STAGE:INFO	INFO	Ax	XYZ	X	detailed axis information	see manual
+XY-STAGE:JOYSTICK	JOYSTICK	:A	XYZ	X+  X=device	enable disable XY joystick Z knob	see manual
+XY-STAGE:JSSPD	JSSPD	:A	XYZ	X=value	set relative motor speed of XY joystick max deflection and Z knob	see manual
+XY-STAGE:KD	KD	null	XYZ	X=integer	-	not needed
+XY-STAGE:KI	KI	null	XYZ	X=integer	-	not needed
+XY-STAGE:KP	KP	null	XYZ	X=integer	-	not needed
+XY-STAGE:LCD	LCD	null	XYZ	"""string"""	quoted string shown on bottom line of LCD	not needed
+XY-STAGE:LED	LED	null	XYZ	X=9 to 99	set brightness of ASI LED illuminator	not needed
+XY-STAGE:LLADDR	LLADDR	null	XYZ	X=address	sets address of axis for low-level command set	not needed
+XY-STAGE:LOAD	LOAD	null	XYZ	not needed	buffer position coordinates for TTL and RBMODE commands	not needed
+XY-STAGE:MAINTAIN	MAINTAIN	:A	XYZ	X=code	behavior of controller after MOVE based on Drift_Error	units integer[0]_see INFO_see manual
+XY-STAGE:MOTCTRL	MOTCTRL	:A	XYZ	X+	enable disable motor control of axis	open-loop suggesting lost of position for subsequent drift or movement
+XY-STAGE:MOVE	MOVE	:A	XYZ	X X=x	move axis to absolute position	units tenths microns_see manual_use STATUS to determine completion of MOVE
+XY-STAGE:MOVREL	MOVREL	:A	XYZ	X X=x	move axis to relative position	units tenths microns_see manual_use STATUS to determine completion of MOVE
+XY-STAGE:PCROS	PCROS	:A	XYZ	X= X?	sets/displays axis Finish_Error setting when motor will turn off	units mm_see INFO_see manual
+XY-STAGE:PEDAL	PEDAL	:A	XYZ	-	-	not needed
+XY-STAGE:RBMODE	RBMODE	null	XYZ	-	-	not needed
+XY-STAGE:RDADC	RDADC	:A	XYZ	-	-	not needed
+XY-STAGE:RDSBYTE	RDSBYTE	null	XYZ	-	-	not needed
+XY-STAGE:RDSTAT	RDSTAT	:A	XYZ	-	-	not needed
+XY-STAGE:RESET	RESET	:A	XYZ	blank	resets controller software	not needed(?)
+XY-STAGE:RT	RT	:A	XYZ	-	-	not needed
+XY-STAGE:RUNAWAY	RUNAWAY	:A	XYZ	X=	distance between internal servo target and actual position before motor is disabled	units mm[1-2]_see manual
+XY-STAGE:SAVESET	SAVESET	:A	XYZ	-	-	not needed
+XY-STAGE:SAVEPOS	SAVEPOS	:A	XYZ	-	-	not needed
+XY-STAGE:SCAN	SCAN	null	XYZ	X=scan_axis F=pattern	set up scan pattern=0 raster 1 serpentine	see manual
+XY-STAGE:SCANR	SCANR	null	XYZ	X=start  etc.	raster scan start and stop positions fast(horizontal) axis	see manual
+XY-STAGE:SCANV	SCANV	null	XYZ	X=start  etc.	raster scan start and stop positions slow(vertical) axis	see manual
+XY-STAGE:SECURE	SECURE	:A	XYZ	-	-	not needed
+XY-STAGE:SETHOME	SETHOME	:A	XYZ	X X=	displays/sets fixed hardware HOME position of axis	see manual
+XY-STAGE:SETLOW	SETLOW	:A	XYZ	-	-	not needed
+XY-STAGE:SETUP	SETUP	null	XYZ	-	-	not needed
+XY-STAGE:SI	SI	:A	XYZ	X=direction/value	differs for linear encoders vs rotary encoders	see manual
+XY-STAGE:SPEED	SPEED	:A	XYZ	X=value X?	set maximum motor speeds for axes	units mm/s[7.5]
+XY-STAGE:SPIN	SPIN	:A	XYZ	-	-	not needed
+XY-STAGE:STATUS	STATUS	N	XYZ	blank	STATUS command / works faster returns B if busy N if MOVE is finished	see manual
+XY-STAGE:STOPBITS	STOPBITS	null	XYZ	X=1 or 2 X?	default for com is 1	not needed
+XY-STAGE:TTL	TTL	null	XYZ	-	-	not needed
+XY-STAGE:UM	UM	:A	XYZ	-	-	not needed
+XY-STAGE:UNITS	UNITS	:A	XYZ	-	-	not needed
+XY-STAGE:VB	VB	null	XYZ	-	-	not needed
+XY-STAGE:VECTOR	VECTOR	:A	XYZ	-	-	not needed
+XY-STAGE:VERSION	VERSION	:A	XYZ	-	-	not needed
+XY-STAGE:WAIT	WAIT	:A	XYZ	X=	sets wait time after MOVE; positioning the axis on target continues	see manual
+XY-STAGE:WHERE	WHERE	:A	XYZ	X	returns current absolute axis position	units tenths microns_see manual
+XY-STAGE:WHO	WHO	:A	XYZ	blank	returns controller name	see manual
+XY-STAGE:WRDAC	WRDAC	:A	-	-	-	not needed
+XY-STAGE:ZERO	ZERO	:A	XYZ	blank	sets current position as origin	units tenths microns
+XY-STAGE:Z2B	Z2B	:A	-	-	-	not needed
+XY-STAGE:ZS	ZS	:A	-	-	-	not needed
+XY-STAGE:OPEN	OPEN	null	XYZ	with stage ID	opens VISA communication	A2Z command
+XY-STAGE:CLOSE	CLOSE	null	XYZ	with stage ID	closes VISA communication	A2Z command
+XY-STAGE:XMICRON	-0.1	null	null	null	null	null
+XY-STAGE:YMICRON	0.1	null	null	null	null	null
+XY-STAGE:SPEED_MAX	75000	null	null	null	null	null
