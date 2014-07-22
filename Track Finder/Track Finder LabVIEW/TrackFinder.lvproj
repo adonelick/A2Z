@@ -10,10 +10,13 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="3d Line.ctl" Type="VI" URL="../3d Line.ctl"/>
+		<Item Name="Filter Potential CFTs.vi" Type="VI" URL="../Filter Potential CFTs.vi"/>
 		<Item Name="Find Lines.vi" Type="VI" URL="../Find Lines.vi"/>
 		<Item Name="Find Potential CFTs.vi" Type="VI" URL="../Find Potential CFTs.vi"/>
 		<Item Name="Nudge Rectangle.vi" Type="VI" URL="../Nudge Rectangle.vi"/>
-		<Item Name="TrackFinder Tester.vi" Type="VI" URL="../TrackFinder Tester.vi"/>
+		<Item Name="Scored Line.ctl" Type="VI" URL="../Scored Line.ctl"/>
+		<Item Name="TrackFinder Tester (Stack).vi" Type="VI" URL="../TrackFinder Tester (Stack).vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="AviRefnum.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Avi1.llb/AviRefnum.ctl"/>
@@ -108,6 +111,7 @@
 			<Item Name="Focus RGB Image Stack.vi" Type="VI" URL="../../../Stack Focuser/Focus RGB Image Stack.vi"/>
 			<Item Name="Focus Track Stack.vi" Type="VI" URL="../../../Stack Focuser/Focus Track Stack.vi"/>
 			<Item Name="Get Etch Figure Score.vi" Type="VI" URL="../../../Stack Focuser/Get Etch Figure Score.vi"/>
+			<Item Name="Length of Line.vi" Type="VI" URL="../../../Common VIs/Length of Line.vi"/>
 			<Item Name="Make Max Stack.vi" Type="VI" URL="../../../Stack Focuser/Make Max Stack.vi"/>
 			<Item Name="nivision.dll" Type="Document" URL="nivision.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
