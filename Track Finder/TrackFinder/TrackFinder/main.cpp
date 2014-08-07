@@ -319,29 +319,37 @@ lineStruct findTrackOnLine(int x, int y, int thetaR, int trackWidth, int contras
 		int lContrast = 0;
 		int rContrast = 0;
 
-		//constrain within rectangular image
+		// Make sure that the point (newX, newY) being analyzed
+		// is actually located within the rectangular, original 
+		// image. 
 		if (0 <= newX && newX < width && 0 <= newY && newY < height) {
 			//takes trackWidth into account (currently not weighted)
 			int intensity = 0;
 			int pixelCount = 0;
+
+
+			// Calculate the average intensity along a line (with total length
+			// trackLength) orthogonal to the candidate track
 			for (int j = 0; j < trackWidth; j++) {
 				int widthOffset = -trackWidth / 2 + j;
 				int tempX = newX + widthOffset*cos(M_PI / 2 - theta);
 				int tempY = newY + widthOffset*sin(M_PI / 2 - theta);
+
+				// Again, make sure that this newly computed point (tempX, tempY)
+				// is actually located within the original image
 				if (0 <= tempX && tempX < width && 0 <= tempY && tempY < height) {
 					pixelCount += 1;
 					intensity += img1.data[tempY*step + tempX*channels];
 				}
 			}
-
-
 			intensity = intensity / pixelCount;
 
-			//compare intensity at contrastWidth
+			//compare intensity at distance 
 			for (int j = 0; j <= contrastWidth; j += contrastWidth) {
 				int contrastOffset = -contrastWidth / 2 + j;
 				int tempX = newX + contrastOffset*cos(M_PI / 2 - theta);
 				int tempY = newY + contrastOffset*sin(M_PI / 2 - theta);
+
 				if (0 <= tempX && tempX < width && 0 <= tempY && tempY < height) {
 					if (j == 0)
 						lContrast = img1.data[tempY*step + tempX*channels] - intensity;
@@ -350,9 +358,10 @@ lineStruct findTrackOnLine(int x, int y, int thetaR, int trackWidth, int contras
 				}
 			}
 
-
-			//####loosen requirements so one bad pixel doesn't ruin the run
+			// Check if the current pixel is an additional pixel
+			// to add to the current run of "track pixel" or not
 			if (intensity < avgIntensity && abs(lContrast) > cTolerance && abs(rContrast) > cTolerance) {
+				// Yes, the current pixel is a good one
 				badPixels = 0;
 
 				if (currentRun == 0) {
@@ -360,10 +369,16 @@ lineStruct findTrackOnLine(int x, int y, int thetaR, int trackWidth, int contras
 					currentY = newY;
 				}
 				currentRun += 1;
-			}
-			else {
+			} else {
+				// No, the current pixel is bad. However, we can loosen the 
+				// requirements so that a single (up to tolerance number of pixels)
+				// does not ruin a good run
 				badPixels += 1;
+
+				// Now, check if we have exceeded the tolerance on bad pixels
 				if (badPixels > tolerance) {
+
+					// Save the best line (longest run of good pixels) 
 					if (currentRun > longestRun) {
 						longestRun = currentRun;
 						longX1 = currentX;
