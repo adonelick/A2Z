@@ -13,7 +13,7 @@
 		<Item Name="Extract Contour Features.vi" Type="VI" URL="../Extract Contour Features.vi"/>
 		<Item Name="Extract Tip Features from Image.vi" Type="VI" URL="../Extract Tip Features from Image.vi"/>
 		<Item Name="Extract Tip Features.vi" Type="VI" URL="../Extract Tip Features.vi"/>
-		<Item Name="Reset Feature Extraction.vi" Type="VI" URL="../Reset Feature Extraction.vi"/>
+		<Item Name="Reset Tip Feature Extraction.vi" Type="VI" URL="../Reset Tip Feature Extraction.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
@@ -73,6 +73,7 @@
 				<Item Name="Write To Spreadsheet File (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File (string).vi"/>
 				<Item Name="Write To Spreadsheet File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File.vi"/>
 			</Item>
+			<Item Name="Extract Tip Features from Image File.vi" Type="VI" URL="../Extract Tip Features from Image File.vi"/>
 			<Item Name="nivision.dll" Type="Document" URL="nivision.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
