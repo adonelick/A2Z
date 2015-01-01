@@ -10,8 +10,12 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="Classification" Type="Folder">
+			<Item Name="Classify Tips.vi" Type="VI" URL="../Classification/Classify Tips.vi"/>
+		</Item>
 		<Item Name="Controls" Type="Folder">
 			<Item Name="Tip.ctl" Type="VI" URL="../Controls/Tip.ctl"/>
+			<Item Name="Track.ctl" Type="VI" URL="../Controls/Track.ctl"/>
 		</Item>
 		<Item Name="Feature Extraction" Type="Folder">
 			<Item Name="Extract Contour Features.vi" Type="VI" URL="../Feature Extraction/Extract Contour Features.vi"/>
@@ -21,19 +25,27 @@
 			<Item Name="Reset Tip Feature Extraction.vi" Type="VI" URL="../Feature Extraction/Reset Tip Feature Extraction.vi"/>
 		</Item>
 		<Item Name="Model Training" Type="Folder">
+			<Item Name="Train Tip KNN.vi" Type="VI" URL="../Model Training/Train Tip KNN.vi"/>
 			<Item Name="Train Tip SVM.vi" Type="VI" URL="../Model Training/Train Tip SVM.vi"/>
+			<Item Name="Train Track KNN.vi" Type="VI" URL="../Model Training/Train Track KNN.vi"/>
+			<Item Name="Train Track SVM.vi" Type="VI" URL="../Model Training/Train Track SVM.vi"/>
 		</Item>
 		<Item Name="Sample Extraction" Type="Folder">
 			<Item Name="Extract Tip.vi" Type="VI" URL="../Sample Extraction/Extract Tip.vi"/>
 			<Item Name="Filter Tips.vi" Type="VI" URL="../Sample Extraction/Filter Tips.vi"/>
+			<Item Name="Find Closest Tip to Point.vi" Type="VI" URL="../Sample Extraction/Find Closest Tip to Point.vi"/>
 			<Item Name="Find Curvature Point.vi" Type="VI" URL="../Sample Extraction/Find Curvature Point.vi"/>
 			<Item Name="Find Potential Tips.vi" Type="VI" URL="../Sample Extraction/Find Potential Tips.vi"/>
+			<Item Name="Generate Track ROI.vi" Type="VI" URL="../Sample Extraction/Generate Track ROI.vi"/>
 			<Item Name="Load New AVI.vi" Type="VI" URL="../Sample Extraction/Load New AVI.vi"/>
+			<Item Name="Match Tips.vi" Type="VI" URL="../Sample Extraction/Match Tips.vi"/>
 			<Item Name="Nudge Rectangle.vi" Type="VI" URL="../Sample Extraction/Nudge Rectangle.vi"/>
 			<Item Name="Overlay Tips.vi" Type="VI" URL="../Sample Extraction/Overlay Tips.vi"/>
+			<Item Name="Overlay Track.vi" Type="VI" URL="../Sample Extraction/Overlay Track.vi"/>
 			<Item Name="Read AVI to Array.vi" Type="VI" URL="../Sample Extraction/Read AVI to Array.vi"/>
 			<Item Name="Save Samples.vi" Type="VI" URL="../Sample Extraction/Save Samples.vi"/>
 		</Item>
+		<Item Name="Unlabeled Sample Extraction" Type="Folder"/>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -65,14 +77,20 @@
 				<Item Name="GetRTHostConnectedProp.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/GetRTHostConnectedProp.vi"/>
 				<Item Name="Image Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Type"/>
 				<Item Name="Image Unit" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Unit"/>
+				<Item Name="IMAQ ArrayToImage" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ArrayToImage"/>
 				<Item Name="IMAQ AVI Close" Type="VI" URL="/&lt;vilib&gt;/vision/Avi1.llb/IMAQ AVI Close"/>
 				<Item Name="IMAQ AVI Get Info" Type="VI" URL="/&lt;vilib&gt;/vision/Avi2.llb/IMAQ AVI Get Info"/>
 				<Item Name="IMAQ AVI Open" Type="VI" URL="/&lt;vilib&gt;/vision/Avi2.llb/IMAQ AVI Open"/>
 				<Item Name="IMAQ AVI Read Frame" Type="VI" URL="/&lt;vilib&gt;/vision/Avi2.llb/IMAQ AVI Read Frame"/>
+				<Item Name="IMAQ Classifier Classify Results.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Classify Results.ctl"/>
+				<Item Name="IMAQ Classifier Classify Sample Results.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Classify Sample Results.ctl"/>
+				<Item Name="IMAQ Classifier Engine Type.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Engine Type.ctl"/>
 				<Item Name="IMAQ Classifier Nearest Neighbor options.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Nearest Neighbor options.ctl"/>
 				<Item Name="IMAQ Classifier Nearest Neighbor Training Results.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Nearest Neighbor Training Results.ctl"/>
+				<Item Name="IMAQ Classifier Read Options.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Read Options.ctl"/>
 				<Item Name="IMAQ Classifier Session.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Session.ctl"/>
 				<Item Name="IMAQ Classifier SVM Training Results.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier SVM Training Results.ctl"/>
+				<Item Name="IMAQ Classifier Type.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Type.ctl"/>
 				<Item Name="IMAQ Classifier Write Options.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Classifier Write Options.ctl"/>
 				<Item Name="IMAQ Clear Overlay" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Clear Overlay"/>
 				<Item Name="IMAQ Connect Range Setting.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Contour.llb/IMAQ Connect Range Setting.ctl"/>
@@ -80,18 +98,20 @@
 				<Item Name="IMAQ Convert Curve Extraction To Internal" Type="VI" URL="/&lt;vilib&gt;/vision/Contour.llb/IMAQ Convert Curve Extraction To Internal"/>
 				<Item Name="IMAQ Convert Overlay Settings To Internal" Type="VI" URL="/&lt;vilib&gt;/vision/Contour.llb/IMAQ Convert Overlay Settings To Internal"/>
 				<Item Name="IMAQ Convert Rectangle to ROI" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Conversion.llb/IMAQ Convert Rectangle to ROI"/>
+				<Item Name="IMAQ Convert ROI to Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Conversion.llb/IMAQ Convert ROI to Rectangle"/>
 				<Item Name="IMAQ Copy" Type="VI" URL="/&lt;vilib&gt;/vision/Management.llb/IMAQ Copy"/>
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
 				<Item Name="IMAQ Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Dispose"/>
 				<Item Name="IMAQ Dispose Classifier" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ Dispose Classifier"/>
 				<Item Name="IMAQ GetImageInfo" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ GetImageInfo"/>
 				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
+				<Item Name="IMAQ ImageToArray" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ImageToArray"/>
 				<Item Name="IMAQ Overlay Line" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay Line"/>
 				<Item Name="IMAQ Overlay Oval" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay Oval"/>
-				<Item Name="IMAQ Overlay Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay Rectangle"/>
 				<Item Name="IMAQ Point" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Point"/>
 				<Item Name="IMAQ Read Image And Vision Info" Type="VI" URL="/&lt;vilib&gt;/vision/Files1.llb/IMAQ Read Image And Vision Info"/>
 				<Item Name="IMAQ Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Rectangle"/>
+				<Item Name="IMAQ Rounding Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Rounding Mode.ctl"/>
 				<Item Name="IMAQ SVM Kernel Options.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ SVM Kernel Options.ctl"/>
 				<Item Name="IMAQ SVM Model Options.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Classification.llb/IMAQ SVM Model Options.ctl"/>
 				<Item Name="IMAQ Write BMP File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write BMP File 2"/>
@@ -133,12 +153,21 @@
 				<Item Name="Write To Spreadsheet File (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File (string).vi"/>
 				<Item Name="Write To Spreadsheet File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File.vi"/>
 			</Item>
+			<Item Name="Focus Gray Image Stack.vi" Type="VI" URL="../../../Stack Focuser/Focus Gray Image Stack.vi"/>
+			<Item Name="Focus Image Stack.vi" Type="VI" URL="../../../Stack Focuser/Focus Image Stack.vi"/>
+			<Item Name="Focus RGB Image Stack.vi" Type="VI" URL="../../../Stack Focuser/Focus RGB Image Stack.vi"/>
+			<Item Name="Make Max Stack.vi" Type="VI" URL="../../../Stack Focuser/Make Max Stack.vi"/>
+			<Item Name="mscorlib" Type="VI" URL="mscorlib">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 			<Item Name="nivision.dll" Type="Document" URL="nivision.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="Paste Gray Image.vi" Type="VI" URL="../../../Stack Focuser/Paste Gray Image.vi"/>
+			<Item Name="TrackFinding.dll" Type="Document" URL="../TrackFinding.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
